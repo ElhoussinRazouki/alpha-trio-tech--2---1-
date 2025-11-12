@@ -28,7 +28,7 @@ export default function Navigation() {
           {/* ✅ Logo */}
           <Link href="/" className="flex items-center gap-2">
             <img src="/images/alphatrio.png" alt="logo" className="h-12 w-12 rounded-full" />
-            <span className="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-[#005B99] via-[#00BCD4] to-[#4DD0E1] bg-clip-text text-transparent">
+            <span className="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-[#00BCD4] to-[#005B99] bg-clip-text text-transparent">
   AlphaTrio Tech
 </span>
           </Link>

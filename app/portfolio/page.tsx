@@ -33,7 +33,7 @@ export default function Portfolio() {
         "Built and launched Fat AI, an iOS app for body fat tracking using React Native for mobile, Node.js for APIs, LLMs for chat and vision, and AWS S3 for storage. Implemented AI-driven body fat analysis, personalized fitness plans, and real-time progress tracking to enhance user health and engagement."
       ),
       year: 2023,
-      image: "/images/fatai.PNG",
+      image: "/images/fatai-portrait.png",
     },
     {
       id: 4,
@@ -42,7 +42,7 @@ export default function Portfolio() {
         "Built and launched Viralth - AI Thumbnail Maker, an iOS app for AI-powered thumbnail creation using React Native for mobile, Node.js for APIs, GPT-Image1 for image generation, and AWS S3 for storage. Implemented AI-driven thumbnail design, personalized suggestions, and real-time editing to enhance user creativity and engagement."
       ),
       year: 2023,
-      image: "/images/thumbnail-maker.png",
+      image: "/images/thumbnail-maker-portrait.png",
     },
     {
       id: 5,
@@ -82,34 +82,39 @@ export default function Portfolio() {
                 className="relative group bg-gradient-to-br from-white to-gray-50 dark:from-slate-800 dark:to-slate-900 backdrop-blur-md p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-2xl shadow-gray-700/50 dark:shadow-black/60 hover:shadow-purple-500/30 ring-1 ring-white/50 dark:ring-slate-600/30 transition-all duration-400 hover:-translate-y-2 hover:scale-105"
               >
                 {/* Image Section */}
-                <div className="relative h-52 overflow-hidden rounded-xl">
+                <div className="relative h-52 overflow-hidden rounded-xl mb-4">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-all duration-700 group-hover:scale-110"
+                    className="w-full h-full object-contain opacity-90 group-hover:opacity-100 transition-all duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-80 dark:opacity-60"></div>
                 </div>
 
                 {/* Content */}
-                <div className="p-6">
+                <div className="p-4 relative">
                   <h3 className="text-xl font-semibold mb-2 text-gray-900 dark:text-white group-hover:text-purple-400 transition-colors">
                     {project.title}
                   </h3>
 
-                  {/* Tooltip Description */}
-                  <div className="relative group/tooltip">
-                    <p className="text-gray-700 dark:text-gray-400 text-sm mb-4 line-clamp-1 group-hover/tooltip:text-transparent transition-all duration-300">
+                  {/* Container for description with hover effect */}
+                  <div className="relative min-h-[3.5rem]">
+                    {/* Truncated description (normal state) */}
+                    <p className="text-gray-700 dark:text-gray-400 text-sm line-clamp-2 transition-all duration-300 group-hover:opacity-0 absolute inset-0">
                       {project.description}
                     </p>
 
-                    {/* Tooltip box */}
-                    <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 w-80 bg-white dark:bg-slate-800 text-gray-900 dark:text-gray-100 text-sm p-4 rounded-lg shadow-2xl border border-slate-200 dark:border-slate-700 opacity-0 scale-95 translate-y-2 group-hover/tooltip:opacity-100 group-hover/tooltip:scale-100 group-hover/tooltip:translate-y-0 transition-all duration-300 z-50">
-                      {project.description}
+                    {/* Full description (hover state) - appears in the exact same position */}
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-300 z-10">
+                      <div className="bg-white/95 dark:bg-slate-800/95 backdrop-blur-sm rounded-lg p-3 max-h-32 overflow-y-auto border border-slate-200 dark:border-slate-700 shadow-lg">
+                        <p className="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                          {project.description}
+                        </p>
+                      </div>
                     </div>
                   </div>
 
-                  <p className="text-gray-600 dark:text-gray-500 text-sm">
+                  <p className="text-gray-600 dark:text-gray-500 text-sm mt-4">
                     {t("Year")}: {project.year}
                   </p>
                 </div>
