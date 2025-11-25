@@ -8,6 +8,8 @@ import { useTranslation } from "@/lib/useTranslation";
 import { Button } from "@/components/ui/button";
 import { TweetCard } from "@/components/ui/tweet-card";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
+import LiquidChrome from "@/components/LiquidChrome";
+import { Monitor, Cog, Sparkles, Smartphone } from "lucide-react";
 
 const tweets = [
   "1884066338739830835",
@@ -39,22 +41,22 @@ export default function Home() {
 
   const services = [
     {
-      icon: "💻",
+      icon: Monitor,
       title: t("IT Solutions"),
       desc: t("Enterprise IT infrastructure and support"),
     },
     {
-      icon: "⚙️",
+      icon: Cog,
       title: t("Automation"),
       desc: t("Business process automation"),
     },
     {
-      icon: "🤖",
+      icon: Sparkles,
       title: t("AI Solutions"),
       desc: t("AI-powered business solutions"),
     },
     {
-      icon: "📱",
+      icon: Smartphone,
       title: t("App Development"),
       desc: t("Custom web and mobile apps"),
     },
@@ -65,6 +67,7 @@ export default function Home() {
       <Navigation />
 
       {/* Hero Section */}
+      
       <section className="min-h-screen flex items-center justify-center bg-white dark:bg-gradient-to-br dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 px-4">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -93,6 +96,7 @@ export default function Home() {
               {t("View Portfolio")}
             </Link>
           </div>
+          
         </motion.div>
       </section>
 
@@ -106,7 +110,7 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
               viewport={{ once: true }}
-              className="text-center"
+              className="bg-gradient-to-br from-white to-gray-50 dark:from-slate-800 dark:to-slate-900 backdrop-blur-md p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-2xl shadow-gray-700/50 dark:shadow-black/60 hover:shadow-2xl hover:shadow-purple-500/30 ring-1 ring-white/50 dark:ring-slate-600/30 transition-all duration-400 hover:-translate-y-2 hover:scale-105 text-center"
             >
               <div className="text-5xl font-extrabold text-purple-500 mb-2">
                 {stat.num}
@@ -124,24 +128,27 @@ export default function Home() {
             {t("Our Services")}
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {services.map((service, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                viewport={{ once: true }}
-                className="bg-gradient-to-br from-white to-gray-50 dark:from-slate-800 dark:to-slate-900 backdrop-blur-md p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-2xl shadow-gray-700/50 dark:shadow-black/60 hover:shadow-2xl hover:shadow-purple-500/30 ring-1 ring-white/50 dark:ring-slate-600/30 transition-all duration-400 hover:-translate-y-2 hover:scale-105"
-              >
-                <div className="text-5xl mb-4">{service.icon}</div>
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
-                  {service.title}
-                </h3>
-                <p className="text-slate-600 dark:text-gray-400">
-                  {service.desc}
-                </p>
-              </motion.div>
-            ))}
+            {services.map((service, i) => {
+              const IconComponent = service.icon;
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: i * 0.1 }}
+                  viewport={{ once: true }}
+                  className="bg-gradient-to-br from-white to-gray-50 dark:from-slate-800 dark:to-slate-900 backdrop-blur-md p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-2xl shadow-gray-700/50 dark:shadow-black/60 hover:shadow-2xl hover:shadow-purple-500/30 ring-1 ring-white/50 dark:ring-slate-600/30 transition-all duration-400 hover:-translate-y-2 hover:scale-105"
+                >
+                  <IconComponent className="w-12 h-12 mb-4 text-purple-500 dark:text-purple-400" />
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2">
+                    {service.title}
+                  </h3>
+                  <p className="text-slate-600 dark:text-gray-400">
+                    {service.desc}
+                  </p>
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -166,6 +173,7 @@ export default function Home() {
             pauseOnHover={true}
           />
         </div>
+        
       </section>
 
       {/* CTA Section */}
@@ -185,6 +193,12 @@ export default function Home() {
           </Button>
         </motion.div>
       </section>
+
+      <div style={{ width: '100%', height: '0px', position: 'relative' }}>
+
+        {/* <LiquidChrome baseColor={[0.3, 0.1, 0.5]} speed={0.3} amplitude={0.4} /> */}
+
+      </div>
 
       <Footer />
     </>
