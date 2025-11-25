@@ -3,6 +3,8 @@
 import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import { useTranslation } from "@/lib/useTranslation";
+import { motion } from "framer-motion";
+import { Target, Lightbulb, Users } from "lucide-react"; // modern icons
 
 export default function About() {
   const { t } = useTranslation();
@@ -24,10 +26,25 @@ export default function About() {
       name: "Elhoussin Razouki",
       role: t("DevOps Engineer"),
       bio: t("Cloud infrastructure and automation expert"),
-      image:
-        "https://elhoussinrazouki.vercel.app/_next/image?url=https%3A%2F%2Flh3.googleusercontent.com%2Fa%2FACg8ocLwLdSfciBxubaHezLLfg6h4hhB5uFz8HF3BFTCFctCJt_7gMVm%3Ds576-c-no&w=1080&q=75",
+      image: "/images/hossinphoto.png",
     },
   ];
+
+  // Animated color loop for borders
+  const borderAnimation = {
+    background: [
+      "linear-gradient(90deg, #8B5CF6, #3B82F6)",
+      "linear-gradient(90deg, #3B82F6, #10B981)",
+      "linear-gradient(90deg, #10B981, #F59E0B)",
+      "linear-gradient(90deg, #F59E0B, #8B5CF6)",
+    ],
+  };
+
+  const borderTransition = {
+    duration: 4,
+    repeat: Infinity,
+    ease: "linear" as const,
+  };
 
   return (
     <>
@@ -35,51 +52,130 @@ export default function About() {
 
       <section className="min-h-screen bg-white text-gray-900 dark:bg-gradient-to-br dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 dark:text-gray-100 py-20 px-4">
         <div className="max-w-7xl mx-auto">
-          <h1 className="text-5xl font-bold text-center mb-4">
+          {/* Header */}
+          <motion.h1
+            initial={{ opacity: 0, y: -30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-5xl font-bold text-center mb-4"
+          >
             {t("About AlphaTrio Tech")}
-          </h1>
-          <p className="text-gray-600 dark:text-gray-400 text-center mb-16 max-w-2xl mx-auto">
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
+            className="text-gray-600 dark:text-gray-400 text-center mb-16 max-w-2xl mx-auto"
+          >
             {t("Building innovative technology solutions since 2020")}
-          </p>
+          </motion.p>
 
-          {/* Company Story */}
-          <div className="bg-white dark:bg-slate-800 p-8 rounded-lg border border-slate-200 dark:border-slate-700 mb-16">
-            <h2 className="text-3xl font-bold mb-6 text-gray-900 dark:text-white">
-              {t("Our Story")}
-            </h2>
-            <p className="text-gray-700 dark:text-gray-300 mb-4">
-              {t("company.story.paragraph1")}
-            </p>
-            <p className="text-gray-700 dark:text-gray-300">
-              {t("company.story.paragraph2")}
-            </p>
-          </div>
+          {/* Company Story — Animated with gradient border */}
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+            className="relative p-[2px] rounded-2xl mb-20 shadow-lg overflow-hidden"
+          >
+            <motion.div
+              animate={borderAnimation}
+              transition={borderTransition}
+              className="absolute inset-0 rounded-2xl"
+              style={{
+                background: borderAnimation.background[0],
+              }}
+            />
+            <div className="bg-white dark:bg-slate-800 rounded-2xl p-10 relative z-10">
+              <motion.h2
+                initial={{ opacity: 0, y: -20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.6 }}
+                className="text-3xl font-bold mb-6 text-gray-900 dark:text-white text-center"
+              >
+                {t("Our Story")}
+              </motion.h2>
 
-          {/* Values */}
-          <div className="grid md:grid-cols-3 gap-6 mb-16">
+              <motion.p
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.6 }}
+                className="text-gray-700 dark:text-gray-300 mb-4 leading-relaxed text-lg"
+              >
+                {t("company.story.paragraph1")}
+              </motion.p>
+
+              <motion.p
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5, duration: 0.6 }}
+                className="text-gray-700 dark:text-gray-300 leading-relaxed text-lg"
+              >
+                {t("company.story.paragraph2")}
+              </motion.p>
+            </div>
+          </motion.div>
+
+          {/* Values — Modern cards with icons */}
+          <div className="grid md:grid-cols-3 gap-8 mb-20">
             {[
               {
+                icon: <Target className="w-10 h-10 text-purple-500 mb-3" />,
                 title: t("Results-Focused"),
                 desc: t("We measure success by your business outcomes"),
               },
               {
+                icon: <Lightbulb className="w-10 h-10 text-yellow-400 mb-3" />,
                 title: t("Innovation"),
                 desc: t("Always exploring new technologies and approaches"),
               },
               {
+                icon: <Users className="w-10 h-10 text-blue-400 mb-3" />,
                 title: t("Collaboration"),
                 desc: t("Working closely with you every step of the way"),
               },
             ].map((value, i) => (
-              <div
+              <motion.div
                 key={i}
-                className="bg-gradient-to-br from-white to-gray-50 dark:from-slate-800 dark:to-slate-900 backdrop-blur-md p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-2xl shadow-gray-700/50 dark:shadow-black/60 hover:shadow-2xl hover:shadow-purple-500/30 ring-1 ring-white/50 dark:ring-slate-600/30 transition-all duration-400 hover:-translate-y-2 hover:scale-105"
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{
+                  scale: 1.05,
+                  boxShadow: "0 0 25px rgba(139,92,246,0.4)",
+                }}
+                transition={{ delay: 0.2 * i, duration: 0.6 }}
+                viewport={{ once: true }}
+                className="relative bg-gradient-to-br from-white to-gray-50 dark:from-slate-800 dark:to-slate-900 backdrop-blur-md p-8 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-2xl shadow-gray-700/50 dark:shadow-black/60 hover:shadow-2xl hover:shadow-purple-500/30 overflow-hidden"
               >
-                <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">
-                  {value.title}
-                </h3>
-                <p className="text-gray-700 dark:text-gray-400">{value.desc}</p>
-              </div>
+                <motion.div
+                  animate={{
+                    borderImageSource: [
+                      "linear-gradient(90deg, #8B5CF6, #3B82F6)",
+                      "linear-gradient(90deg, #3B82F6, #10B981)",
+                      "linear-gradient(90deg, #10B981, #F59E0B)",
+                      "linear-gradient(90deg, #F59E0B, #8B5CF6)",
+                    ],
+                  }}
+                  transition={{
+                    duration: 4,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
+                />
+                <div className="flex flex-col items-center text-center">
+                  {value.icon}
+                  <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-white">
+                    {value.title}
+                  </h3>
+                  <p className="text-gray-700 dark:text-gray-400">
+                    {value.desc}
+                  </p>
+                </div>
+
+                {/* Subtle glow background */}
+                <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition duration-700 blur-2xl"></div>
+              </motion.div>
             ))}
           </div>
 
@@ -91,13 +187,16 @@ export default function About() {
 
             <div className="grid md:grid-cols-3 gap-10">
               {team.map((member, i) => (
-                <div
+                <motion.div
                   key={i}
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 * i, duration: 0.6 }}
+                  viewport={{ once: true }}
                   className="relative group rounded-2xl border border-slate-300 dark:border-slate-700
                              bg-white dark:bg-slate-800 backdrop-blur-xl p-6 shadow-lg transition-all duration-500
                              hover:scale-[1.03] hover:shadow-purple-500/30 hover:border-purple-400/50"
                 >
-                  {/* صورة العضو */}
                   <div className="relative w-32 h-32 mx-auto mb-6 overflow-hidden rounded-full border-2 border-purple-500/50 shadow-lg">
                     <img
                       src={member.image}
@@ -106,7 +205,6 @@ export default function About() {
                     />
                   </div>
 
-                  {/* المعلومات */}
                   <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-1 group-hover:text-purple-400 transition">
                     {member.name}
                   </h3>
@@ -117,11 +215,10 @@ export default function About() {
                     {member.bio}
                   </p>
 
-                  {/* تأثير الضوء */}
                   <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700">
                     <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 via-blue-500 to-purple-600 blur-2xl opacity-25"></div>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
           </div>

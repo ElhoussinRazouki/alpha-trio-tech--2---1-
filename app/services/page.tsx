@@ -4,13 +4,15 @@ import Navigation from "@/components/navigation";
 import Footer from "@/components/footer";
 import { motion } from "framer-motion";
 import { useTranslation } from "@/lib/useTranslation";
+import { Monitor, Cog, Sparkles, Smartphone } from "lucide-react";
+
 
 export default function Services() {
   const { t } = useTranslation();
 
   const services = [
     {
-      icon: "💻",
+      icon: Monitor,
       title: t("IT Solutions"),
       description: t(
         "Enterprise IT infrastructure, cloud solutions, and technical support"
@@ -24,7 +26,7 @@ export default function Services() {
       gradient: "from-purple-500/10 to-blue-500/10",
     },
     {
-      icon: "⚙️",
+      icon: Cog,
       title: t("Automation"),
       description: t(
         "Business process automation to increase efficiency and reduce costs"
@@ -38,7 +40,7 @@ export default function Services() {
       gradient: "from-cyan-500/10 to-emerald-500/10",
     },
     {
-      icon: "🤖",
+      icon: Sparkles,
       title: t("AI Solutions"),
       description: t(
         "Artificial intelligence and machine learning solutions for your business"
@@ -52,7 +54,7 @@ export default function Services() {
       gradient: "from-pink-500/10 to-purple-500/10",
     },
     {
-      icon: "📱",
+      icon: Smartphone,
       title: t("App Development"),
       description: t(
         "Custom web and mobile applications tailored to your needs"
@@ -115,47 +117,50 @@ export default function Services() {
 
           {/* Services Grid */}
           <div className="grid md:grid-cols-2 gap-8 mb-20">
-            {services.map((service, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: i * 0.1 }}
-                viewport={{ once: true }}
-                className={`relative bg-gradient-to-br ${service.gradient} p-[1px] rounded-2xl group`}
-              >
-                <div
-                  className="flex flex-col justify-between w-full h-full 
-                    bg-gradient-to-br from-white to-gray-50 dark:from-slate-800 dark:to-slate-900 
-                    backdrop-blur-md p-6 rounded-2xl border border-slate-200 dark:border-slate-700 
-                    shadow-[0_8px_30px_rgb(0,0,0,0.08)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.35)]
-                    hover:shadow-[0_12px_40px_rgb(0,188,212,0.25)] dark:hover:shadow-[0_12px_40px_rgba(0,188,212,0.35)]
-                    hover:border-[#00BCD4]/40 ring-1 ring-white/50 dark:ring-slate-600/30 
-                    transition-all duration-400 hover:-translate-y-2 hover:scale-[1.03] min-h-[420px] shadow-2xl shadow-gray-700/50 dark:shadow-black/60 hover:shadow-2xl hover:shadow-purple-500/30 ring-1 ring-white/50 dark:ring-slate-600/30 transition-all duration-400 hover:-translate-y-2 hover:scale-105"
+            {services.map((service, i) => {
+              const IconComponent = service.icon;
+              return (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: i * 0.1 }}
+                  viewport={{ once: true }}
+                  className={`relative bg-gradient-to-br ${service.gradient} p-[1px] rounded-2xl group`}
                 >
-                  <div className="text-6xl mb-4">{service.icon}</div>
-                  <h3 className="text-2xl font-bold mb-3 text-gray-900 dark:text-white">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-700 dark:text-gray-300 mb-6">
-                    {service.description}
-                  </p>
-                  <ul className="space-y-2">
-                    {service.features.map((feature, j) => (
-                      <li
-                        key={j}
-                        className="text-gray-700 dark:text-gray-300 flex items-center gap-2 hover:text-purple-500 transition"
-                      >
-                        <span className="text-purple-500 dark:text-purple-400">
-                          ✓
-                        </span>{" "}
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </motion.div>
-            ))}
+                  <div
+                    className="flex flex-col justify-between w-full h-full 
+                      bg-gradient-to-br from-white to-gray-50 dark:from-slate-800 dark:to-slate-900 
+                      backdrop-blur-md p-6 rounded-2xl border border-slate-200 dark:border-slate-700 
+                      shadow-[0_8px_30px_rgb(0,0,0,0.08)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.35)]
+                      hover:shadow-[0_12px_40px_rgb(0,188,212,0.25)] dark:hover:shadow-[0_12px_40px_rgba(0,188,212,0.35)]
+                      hover:border-[#00BCD4]/40 ring-1 ring-white/50 dark:ring-slate-600/30 
+                      transition-all duration-400 hover:-translate-y-2 hover:scale-[1.03] min-h-[420px] shadow-2xl shadow-gray-700/50 dark:shadow-black/60 hover:shadow-2xl hover:shadow-purple-500/30 ring-1 ring-white/50 dark:ring-slate-600/30 transition-all duration-400 hover:-translate-y-2 hover:scale-105"
+                  >
+                    <IconComponent className="w-16 h-16 mb-4 text-purple-500 dark:text-purple-400" />
+                    <h3 className="text-2xl font-bold mb-3 text-gray-900 dark:text-white">
+                      {service.title}
+                    </h3>
+                    <p className="text-gray-700 dark:text-gray-300 mb-6">
+                      {service.description}
+                    </p>
+                    <ul className="space-y-2">
+                      {service.features.map((feature, j) => (
+                        <li
+                          key={j}
+                          className="text-gray-700 dark:text-gray-300 flex items-center gap-2 hover:text-purple-500 transition"
+                        >
+                          <span className="text-purple-500 dark:text-purple-400">
+                            ✓
+                          </span>{" "}
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
 
           {/* Process Section */}

@@ -8,9 +8,11 @@ import { useLanguage } from "./language-provider"
 import { useTranslation } from "@/lib/useTranslation"
 import { Button } from "./ui/button"
 import { trackLinkClick, trackButtonClick, trackThemeChange, trackLanguageChange } from "@/lib/analytics"
+import { usePathname } from "next/navigation"
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
+  const [mounted, setMounted] = useState(false)
   const { theme, setTheme } = useTheme()
   const { language, toggleLanguage } = useLanguage()
 
@@ -23,8 +25,18 @@ export default function Navigation() {
     trackLanguageChange(language);
   }, [language]);
   const { t } = useTranslation()
+  const pathname = usePathname()
 
-  // use next-themes' setTheme to persist user choice
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  // Active class helper
+  const isActive = (path: string) =>
+    pathname === path
+      ? "text-purple-600 dark:text-purple-400 font-bold"
+      : "text-gray-800 dark:text-gray-200"
+
   const toggleTheme = () => {
     // theme can be 'system' | 'light' | 'dark'
     const newTheme = theme === "dark" ? "light" : "dark";
@@ -36,12 +48,13 @@ export default function Navigation() {
     <nav className="sticky top-0 z-50 backdrop-blur-md border-b border-slate-700 dark:border-slate-800 bg-white/70 dark:bg-slate-900/90 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* ✅ Logo */}
+
+          {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
             <img src="/images/alphatrio.png" alt="logo" className="h-12 w-12 rounded-full" />
             <span className="text-2xl md:text-3xl font-extrabold bg-gradient-to-r from-[#00BCD4] to-[#005B99] bg-clip-text text-transparent">
-  AlphaTrio Tech
-</span>
+              AlphaTrio Tech
+            </span>
           </Link>
 
           {/* ✅ Desktop Menu */}
@@ -81,27 +94,26 @@ export default function Navigation() {
               {t("nav.bookNow")}
             </Button>
 
-            {/* 🌙 Theme Toggle */}
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-lg border border-slate-300 dark:border-slate-700 hover:bg-purple-100 dark:hover:bg-slate-800 transition"
-              title="Toggle Theme"
-            >
-              {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
-            </button>
+            {/* Theme Toggle */}
+            {mounted && (
+              <button
+                onClick={toggleTheme}
+                className="p-2 rounded-lg border border-slate-300 dark:border-slate-700 hover:bg-purple-100 dark:hover:bg-slate-800 transition"
+              >
+                {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+              </button>
+            )}
 
-            {/* 🌍 Language Toggle */}
+            {/* Language Toggle */}
             <button
               onClick={handleLanguageToggle}
               className="flex items-center gap-1 p-2 rounded-lg border border-slate-300 dark:border-slate-700 hover:bg-purple-100 dark:hover:bg-slate-800 transition"
-              title="Change Language"
             >
-
               <span className="text-sm font-semibold">{language}</span>
             </button>
           </div>
 
-          {/* ✅ Mobile Menu Button */}
+          {/* Mobile Toggle Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden p-2 text-gray-700 dark:text-gray-300"
@@ -117,7 +129,7 @@ export default function Navigation() {
           </button>
         </div>
 
-        {/* ✅ Mobile Menu */}
+        {/* Mobile Menu */}
         {isOpen && (
           <div className="md:hidden flex flex-col space-y-2 pb-4 text-gray-800 dark:text-gray-200">
             <Link
@@ -156,20 +168,21 @@ export default function Navigation() {
               {t("nav.bookNow")}
             </Link>
 
-            {/* Theme & Language buttons */}
+            {/* Theme + Language */}
             <div className="flex items-center justify-center gap-4 pt-4">
-              <button
-                onClick={toggleTheme}
-                className="p-2 rounded-lg border border-slate-300 dark:border-slate-700 hover:bg-purple-100 dark:hover:bg-slate-800 transition"
-              >
-                {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
-              </button>
+              {mounted && (
+                <button
+                  onClick={toggleTheme}
+                  className="p-2 rounded-lg border border-slate-300 dark:border-slate-700 hover:bg-purple-100 dark:hover:bg-slate-800 transition"
+                >
+                  {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+                </button>
+              )}
 
               <button
                 onClick={handleLanguageToggle}
                 className="flex items-center gap-1 p-2 rounded-lg border border-slate-300 dark:border-slate-700 hover:bg-purple-100 dark:hover:bg-slate-800 transition"
               >
-
                 <span className="text-sm font-semibold">{language}</span>
               </button>
             </div>
