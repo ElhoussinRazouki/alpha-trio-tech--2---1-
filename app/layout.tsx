@@ -1,9 +1,11 @@
 import type React from "react";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { ThemeProvider } from "../components/theme-provider";
 import { LanguageProvider } from "../components/language-provider";
+import { AnalyticsProvider } from "../components/analytics-provider";
 import { BookingFunnel } from "@/components/BookingFunnel";
 
 const _geist = Geist({ subsets: ["latin"] });
@@ -26,12 +28,26 @@ export default function RootLayout({
       <body
         className={`font-sans antialiased bg-white text-slate-900 dark:bg-slate-950 dark:text-white transition-colors duration-200`}
       >
-        <ThemeProvider attribute="class">
-          <LanguageProvider>
-            {children}
-            <BookingFunnel />
-          </LanguageProvider>
-        </ThemeProvider>
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=G-R37FB4HJ8Y`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-R37FB4HJ8Y');
+          `}
+        </Script>
+        <AnalyticsProvider>
+          <ThemeProvider attribute="class">
+            <LanguageProvider>
+              {children}
+              <BookingFunnel />
+            </LanguageProvider>
+          </ThemeProvider>
+        </AnalyticsProvider>
       </body>
     </html>
   );

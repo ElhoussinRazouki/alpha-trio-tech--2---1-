@@ -8,6 +8,7 @@ import { useTranslation } from "@/lib/useTranslation";
 import { Button } from "@/components/ui/button";
 import { TweetCard } from "@/components/ui/tweet-card";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
+import { trackButtonClick, trackLinkClick } from "@/lib/analytics";
 
 const tweets = [
   "1884066338739830835",
@@ -83,12 +84,22 @@ export default function Home() {
           </p>
 
           <div className="flex gap-4 justify-center flex-wrap">
-            <Button className="book-cta bg-purple-600 hover:bg-purple-700 px-8 py-3 rounded-lg font-semibold text-white transition shadow-lg hover:shadow-purple-900/70 h-14 hover:cursor-pointer">
+            <Button
+              className="book-cta bg-purple-600 hover:bg-purple-700 px-8 py-3 rounded-lg font-semibold text-white transition shadow-lg hover:shadow-purple-900/70 h-14 hover:cursor-pointer"
+              onClick={() =>
+                trackButtonClick("Book Consultation", "hero_section", {
+                  button_text: t("home.hero.cta"),
+                })
+              }
+            >
               {t("home.hero.cta")}
             </Button>
             <Link
               href="/portfolio"
               className="border border-purple-500 text-slate-900 dark:text-white hover:bg-purple-500/10 px-8 py-3 rounded-lg font-semibold transition content-center"
+              onClick={() =>
+                trackLinkClick(t("View Portfolio"), "/portfolio", "internal")
+              }
             >
               {t("View Portfolio")}
             </Link>
@@ -180,7 +191,14 @@ export default function Home() {
         >
           <h2 className="text-4xl font-bold mb-6">{t("home.cta.title")}</h2>
           <p className="text-lg mb-8 opacity-90">{t("home.cta.description")}</p>
-          <Button className="book-cta bg-white text-purple-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold transition shadow-lg h-12 hover:cursor-pointer">
+          <Button
+            className="book-cta bg-white text-purple-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold transition shadow-lg h-12 hover:cursor-pointer"
+            onClick={() =>
+              trackButtonClick("Get Started", "cta_section", {
+                button_text: t("home.cta.button"),
+              })
+            }
+          >
             {t("home.cta.button")}
           </Button>
         </motion.div>

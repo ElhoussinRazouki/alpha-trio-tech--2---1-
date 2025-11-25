@@ -7,18 +7,29 @@ import { useTheme } from "next-themes"
 import { useLanguage } from "./language-provider"
 import { useTranslation } from "@/lib/useTranslation"
 import { Button } from "./ui/button"
+import { trackLinkClick, trackButtonClick, trackThemeChange, trackLanguageChange } from "@/lib/analytics"
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const { theme, setTheme } = useTheme()
   const { language, toggleLanguage } = useLanguage()
+
+  const handleLanguageToggle = () => {
+    toggleLanguage();
+  }
+
+  // Track language changes
+  useEffect(() => {
+    trackLanguageChange(language);
+  }, [language]);
   const { t } = useTranslation()
 
   // use next-themes' setTheme to persist user choice
   const toggleTheme = () => {
     // theme can be 'system' | 'light' | 'dark'
-    if (theme === "dark") setTheme("light")
-    else setTheme("dark")
+    const newTheme = theme === "dark" ? "light" : "dark";
+    setTheme(newTheme);
+    trackThemeChange(newTheme);
   }
 
   return (
@@ -35,12 +46,37 @@ export default function Navigation() {
 
           {/* ✅ Desktop Menu */}
           <div className="hidden md:flex items-center gap-8 text-gray-800 dark:text-gray-200">
-            <Link href="/" className="hover:text-purple-500 transition">{t("nav.home")}</Link>
-            <Link href="/portfolio" className="hover:text-purple-500 transition"> {t("nav.portfolio")}</Link>
-            <Link href="/services" className="hover:text-purple-500 transition">{t("nav.services")}</Link>
-            <Link href="/about" className="hover:text-purple-500 transition">{t("nav.about")}</Link>
+            <Link
+              href="/"
+              className="hover:text-purple-500 transition"
+              onClick={() => trackLinkClick(t("nav.home"), "/", "internal")}
+            >
+              {t("nav.home")}
+            </Link>
+            <Link
+              href="/portfolio"
+              className="hover:text-purple-500 transition"
+              onClick={() => trackLinkClick(t("nav.portfolio"), "/portfolio", "internal")}
+            >
+              {t("nav.portfolio")}
+            </Link>
+            <Link
+              href="/services"
+              className="hover:text-purple-500 transition"
+              onClick={() => trackLinkClick(t("nav.services"), "/services", "internal")}
+            >
+              {t("nav.services")}
+            </Link>
+            <Link
+              href="/about"
+              className="hover:text-purple-500 transition"
+              onClick={() => trackLinkClick(t("nav.about"), "/about", "internal")}
+            >
+              {t("nav.about")}
+            </Link>
             <Button
               className="book-cta bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition hover:cursor-pointer"
+              onClick={() => trackButtonClick("Book Now", "navigation", { button_text: t("nav.bookNow") })}
             >
               {t("nav.bookNow")}
             </Button>
@@ -56,11 +92,11 @@ export default function Navigation() {
 
             {/* 🌍 Language Toggle */}
             <button
-              onClick={toggleLanguage}
+              onClick={handleLanguageToggle}
               className="flex items-center gap-1 p-2 rounded-lg border border-slate-300 dark:border-slate-700 hover:bg-purple-100 dark:hover:bg-slate-800 transition"
               title="Change Language"
             >
-              
+
               <span className="text-sm font-semibold">{language}</span>
             </button>
           </div>
@@ -84,13 +120,38 @@ export default function Navigation() {
         {/* ✅ Mobile Menu */}
         {isOpen && (
           <div className="md:hidden flex flex-col space-y-2 pb-4 text-gray-800 dark:text-gray-200">
-            <Link href="/" className="hover:text-purple-500 transition py-2">{t("nav.home")}</Link>
-            <Link href="/portfolio" className="hover:text-purple-500 transition py-2">{t("nav.portfolio")}</Link>
-            <Link href="/services" className="hover:text-purple-500 transition py-2">{t("nav.services")}</Link>
-            <Link href="/about" className="hover:text-purple-500 transition py-2">{t("nav.about")}</Link>
+            <Link
+              href="/"
+              className="hover:text-purple-500 transition py-2"
+              onClick={() => trackLinkClick(t("nav.home"), "/", "internal")}
+            >
+              {t("nav.home")}
+            </Link>
+            <Link
+              href="/portfolio"
+              className="hover:text-purple-500 transition py-2"
+              onClick={() => trackLinkClick(t("nav.portfolio"), "/portfolio", "internal")}
+            >
+              {t("nav.portfolio")}
+            </Link>
+            <Link
+              href="/services"
+              className="hover:text-purple-500 transition py-2"
+              onClick={() => trackLinkClick(t("nav.services"), "/services", "internal")}
+            >
+              {t("nav.services")}
+            </Link>
+            <Link
+              href="/about"
+              className="hover:text-purple-500 transition py-2"
+              onClick={() => trackLinkClick(t("nav.about"), "/about", "internal")}
+            >
+              {t("nav.about")}
+            </Link>
             <Link
               href="/bookings"
               className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg text-center transition"
+              onClick={() => trackButtonClick("Book Now", "mobile_navigation", { button_text: t("nav.bookNow") })}
             >
               {t("nav.bookNow")}
             </Link>
@@ -105,10 +166,10 @@ export default function Navigation() {
               </button>
 
               <button
-                onClick={toggleLanguage}
+                onClick={handleLanguageToggle}
                 className="flex items-center gap-1 p-2 rounded-lg border border-slate-300 dark:border-slate-700 hover:bg-purple-100 dark:hover:bg-slate-800 transition"
               >
-                
+
                 <span className="text-sm font-semibold">{language}</span>
               </button>
             </div>
