@@ -1,7 +1,6 @@
 {
   "nav": {
     "home": "Home",
-    "portfolio": "Portfolio",
     "services": "Services",
     "about": "About",
     "bookNow": "Book Now"
@@ -27,7 +26,12 @@
       "success": "✅ Booking saved successfully!",
       "error": "Failed to add booking"
     },
-    "servicesOptions": ["IT Solutions", "Automation", "AI Solutions", "App Development"]
+    "servicesOptions": [
+      "IT Solutions",
+      "Automation",
+      "AI Solutions",
+      "App Development"
+    ]
   },
   "bookingFunnel": {
     "step1": {
@@ -114,7 +118,6 @@
   "Where Deep Tech Meets Human Mindset": "Where Deep Tech Meets Human Mindset",
   "Professional IT solutions, automation, and AI services to transform your business": "Professional IT solutions, automation, and AI services to transform your business",
   "Book Free Consultation": "Book Free Consultation",
-  "View Portfolio": "View Portfolio",
   "Our Services": "Our Services",
   "Projects Completed": "Projects Completed",
   "Happy Clients": "Happy Clients",
@@ -125,29 +128,6 @@
   "Schedule Your Free Consultation": "Schedule Your Free Consultation",
   "IT Solutions": "IT Solutions",
   "Automation": "Automation",
-  "AI Solutions": "AI Solutions",
-  "App Development": "App Development",
-  "Enterprise IT infrastructure and support": "Enterprise IT infrastructure and support",
-  "Business process automation": "Business process automation",
-  "AI-powered business solutions": "AI-powered business solutions",
-  "Custom web and mobile apps": "Custom web and mobile apps",
-  "Our Portfolio": "Our Portfolio",
-  "Explore our latest projects and see how we've helped businesses transform with technology": "Explore our latest projects and see how we've helped businesses transform with technology",
-  "Mobtwin": "Mobtwin",
-  "Year": "Year",
-  "Spyci": "Spyci",
-  "Fat AI - Body Fat Percentage": "Fat AI - Body Fat Percentage",
-  "Viralth - AI Thumbnail Maker": "Viralth - AI Thumbnail Maker",
-  "RPA Solution": "RPA Solution",
-  "Send multiple emails in Gmail directly via Google Sheets": "Send multiple emails in Gmail directly via Google Sheets",
-  "StockNova": "StockNova",
-  "Full-stack e-commerce solution with payment integration": "Full-stack e-commerce solution with payment integration",
-  "Comprehensive technology solutions to drive your business forward": "Comprehensive technology solutions to drive your business forward",
-  "Enterprise IT infrastructure, cloud solutions, and technical support": "Enterprise IT infrastructure, cloud solutions, and technical support",
-  "Infrastructure Setup": "Infrastructure Setup",
-  "Cloud Migration": "Cloud Migration",
-  "24/7 Support": "24/7 Support",
-  "Security Audits": "Security Audits",
   "Business process automation to increase efficiency and reduce costs": "Business process automation to increase efficiency and reduce costs",
   "RPA Solutions": "RPA Solutions",
   "Workflow Automation": "Workflow Automation",

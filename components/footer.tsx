@@ -18,31 +18,30 @@ export default function Footer() {
             <h3 className="font-bold text-lg mb-4">AlphaTrio Tech</h3>
             <p className="text-gray-400 text-sm font-bold text-lg mb-4">{t("Where Deep Tech Meets Human Mindset")}</p>
             {/* Social Media */}
-          <div className="flex space-x-4">
-            <a
-              href="https://www.instagram.com/alphatrio_tech/?hl=en"
-              target="_blank"
-              className="text-gray-400 hover:text-pink-500 transition text-xl"
-            >
-              <FaInstagram />
-            </a>
-            <a
-              href="https://www.tiktok.com/?lang=fr"
-              target="_blank"
-              className="text-gray-400 hover:text-white transition text-xl"
-            >
-              <SiTiktok />
-            </a>
-             <a
-              href="https://www.linkedin.com/in/alphatrio-tech-66357838b/"
-              target="_blank"
-              className="text-gray-400 hover:text-blue-500 transition text-xl"
-            >
-              <FaLinkedin />
-            </a>
+            <div className="flex space-x-4">
+              <a
+                href="https://www.instagram.com/alphatrio_tech/?hl=en"
+                target="_blank"
+                className="text-gray-400 hover:text-pink-500 transition text-xl"
+              >
+                <FaInstagram />
+              </a>
+              <a
+                href="https://www.tiktok.com/?lang=fr"
+                target="_blank"
+                className="text-gray-400 hover:text-white transition text-xl"
+              >
+                <SiTiktok />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/alphatrio-tech-66357838b/"
+                target="_blank"
+                className="text-gray-400 hover:text-blue-500 transition text-xl"
+              >
+                <FaLinkedin />
+              </a>
+            </div>
           </div>
-          </div>
-          
 
           {/* Quick Links */}
           <div>
@@ -51,11 +50,6 @@ export default function Footer() {
               <li>
                 <a href="/" className="hover:text-purple-400 transition">
                   {t("Home")}
-                </a>
-              </li>
-              <li>
-                <a href="/portfolio" className="hover:text-purple-400 transition">
-                  {t("Portfolio")}
                 </a>
               </li>
               <li>
@@ -114,7 +108,6 @@ export default function Footer() {
           <p className="text-gray-400 text-sm mb-4 md:mb-0 mx-auto">
             © 2025 AlphaTrio Tech. {t("All rights reserved")}.
           </p>
-          
         </div>
       </div>
     </footer>

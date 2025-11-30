@@ -1,7 +1,6 @@
 {
   "nav": {
     "home": "Accueil",
-    "portfolio": "Portfolio",
     "services": "Services",
     "about": "À propos",
     "bookNow": "Réserver"
@@ -119,7 +118,6 @@
   "Where Deep Tech Meets Human Mindset": "Là où la Technologie Avancée Rencontre l'Esprit Humain",
   "Professional IT solutions, automation, and AI services to transform your business": "Solutions informatiques professionnelles, automatisation et services d'IA pour transformer votre entreprise",
   "Book Free Consultation": "Réservez une Consultation Gratuite",
-  "View Portfolio": "Voir le Portfolio",
   "Our Services": "Nos Services",
   "Projects Completed": "Projets Terminés",
   "Happy Clients": "Clients Satisfaits",
@@ -136,17 +134,6 @@
   "Business process automation": "Automatisation des processus métier",
   "AI-powered business solutions": "Solutions métier alimentées par l'IA",
   "Custom web and mobile apps": "Applications web et mobiles personnalisées",
-  "Our Portfolio": "Notre Portfolio",
-  "Explore our latest projects and see how we've helped businesses transform with technology": "Découvrez nos derniers projets et voyez comment nous avons aidé les entreprises à se transformer avec la technologie",
-  "Mobtwin": "Mobtwin",
-  "Year": "Année",
-  "Spyci": "Spyci",
-  "Fat AI - Body Fat Percentage": "Fat AI - Pourcentage de masse grasse corporelle",
-  "Viralth - AI Thumbnail Maker": "Viralth - Créateur de miniatures IA",
-  "RPA Solution": "Solution RPA",
-  "Send multiple emails in Gmail directly via Google Sheets": "Envoyer plusieurs e-mails directement depuis Gmail via Google Sheets",
-  "StockNova": "StockNova",
-  "Full-stack e-commerce solution with payment integration": "Solution e-commerce complète avec intégration de paiement",
   "Comprehensive technology solutions to drive your business forward": "Solutions technologiques complètes pour faire avancer votre entreprise",
   "Enterprise IT infrastructure, cloud solutions, and technical support": "Infrastructure informatique d'entreprise, solutions cloud et support technique",
   "Infrastructure Setup": "Configuration d'Infrastructure",

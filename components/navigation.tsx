@@ -52,9 +52,7 @@ export default function Navigation() {
               {t("nav.home")}
             </Link>
 
-            <Link href="/portfolio" className={`${isActive("/portfolio")} hover:text-purple-500 transition`}>
-              {t("nav.portfolio")}
-            </Link>
+
 
             <Link href="/services" className={`${isActive("/services")} hover:text-purple-500 transition`}>
               {t("nav.services")}
@@ -111,9 +109,7 @@ export default function Navigation() {
               {t("nav.home")}
             </Link>
 
-            <Link href="/portfolio" className={`${isActive("/portfolio")} hover:text-purple-500 transition py-2`}>
-              {t("nav.portfolio")}
-            </Link>
+
 
             <Link href="/services" className={`${isActive("/services")} hover:text-purple-500 transition py-2`}>
               {t("nav.services")}

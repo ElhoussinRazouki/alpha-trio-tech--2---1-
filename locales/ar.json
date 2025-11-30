@@ -1,7 +1,6 @@
 {
   "nav": {
     "home": "الرئيسية",
-    "portfolio": "أعمالنا",
     "services": "الخدمات",
     "about": "معلومات عنا",
     "bookNow": "احجز الآن"
@@ -119,7 +118,6 @@
   "Where Deep Tech Meets Human Mindset": "حيث تلتقي التقنية المتقدمة مع العقلية البشرية",
   "Professional IT solutions, automation, and AI services to transform your business": "حلول تقنية معلومات، وأتمتة، وخدمات ذكاء اصطناعي لتحويل عملك",
   "Book Free Consultation": "احجز استشارة مجانية",
-  "View Portfolio": "عرض الأعمال",
   "Our Services": "خدماتنا",
   "Projects Completed": "المشاريع المكتملة",
   "Happy Clients": "العملاء السعداء",
@@ -136,17 +134,6 @@
   "Business process automation": "أتمتة عمليات الأعمال",
   "AI-powered business solutions": "حلول أعمال مدعومة بالذكاء الاصطناعي",
   "Custom web and mobile apps": "تطبيقات ويب وجوال مخصصة",
-  "Our Portfolio": "معرض أعمالنا",
-  "Explore our latest projects and see how we've helped businesses transform with technology": "استكشف أحدث مشاريعنا وشاهد كيف ساعدنا الشركات على التحول باستخدام التكنولوجيا",
-  "Mobtwin": "موبتوين",
-  "Year": "سنة",
-  "Spyci": "سبايسي",
-  "Fat AI - Body Fat Percentage": "Fat AI - نسبة الدهون في الجسم",
-  "Viralth - AI Thumbnail Maker": "Viralth - صانع الصور المصغرة بالذكاء الاصطناعي",
-  "RPA Solution": "حل الأتمتة الروبوتية للعمليات",
-  "Send multiple emails in Gmail directly via Google Sheets": "إرسال رسائل بريد إلكتروني متعددة في Gmail مباشرةً عبر جداول بيانات Google",
-  "StockNova": "ستوك نوفا",
-  "Full-stack e-commerce solution with payment integration": "حل متكامل للتجارة الإلكترونية مع تكامل الدفع",
   "Comprehensive technology solutions to drive your business forward": "حلول تكنولوجية شاملة لدفع عملك إلى الأمام",
   "Enterprise IT infrastructure, cloud solutions, and technical support": "بنية تحتية تقنية للمؤسسات، حلول سحابية، ودعم فني",
   "Infrastructure Setup": "إعداد البنية التحتية",
@@ -206,7 +193,7 @@
   "Years": "السنوات",
   "Satisfaction": "الرضا",
   "Quick Links": "روابط سريعة",
-  "Services":"الخدمات",
+  "Services": "الخدمات",
   "Contact": "اتصال",
   "Email": "البريد الإلكتروني",
   "Phone": "الهاتف",
@@ -216,5 +203,5 @@
   "Twitter": "تويتر",
   "LinkedIn": "لينكد إن",
   "Instagram": "انستغرام",
-  "Tiktok":"تيك توك"
+  "Tiktok": "تيك توك"
 }
