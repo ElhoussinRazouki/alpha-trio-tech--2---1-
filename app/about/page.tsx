@@ -14,7 +14,7 @@ export default function About() {
       name: "Mohcine Ezzirari",
       role: t("Lead Developer"),
       bio: t("Expert in full-stack development and system architecture"),
-      image: "/images/mohsiinphoto.png",
+      image: "/images/mohssin2.png",
     },
     {
       name: "Youssef Boumalik",
