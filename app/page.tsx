@@ -75,21 +75,21 @@ export default function Home() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto text-center"
+          className="max-w-4xl mx-auto text-center relative z-10"
         >
           <h1 className="text-6xl md:text-7xl font-extrabold mb-6 bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 bg-clip-text text-transparent">
             AlphaTrio Tech
           </h1>
           <p className="text-xl md:text-2xl text-slate-700 dark:text-gray-200 mb-6">
-            {t("home.hero.title")}
+            {t("Where Deep Tech Meets Human Mindset")}
           </p>
           <p className="text-lg text-slate-600 dark:text-gray-400 mb-12 max-w-2xl mx-auto">
-            {t("home.hero.subtitle")}
+            {t("Professional IT solutions, automation, and AI services to transform your business")}
           </p>
 
           <div className="flex gap-4 justify-center flex-wrap">
             <Button className="book-cta bg-purple-600 hover:bg-purple-700 px-8 py-3 rounded-lg font-semibold text-white transition shadow-lg hover:shadow-purple-900/70 h-14 hover:cursor-pointer">
-              {t("home.hero.cta")}
+              {t("Book Free Consultation")}
             </Button>
 
           </div>
@@ -183,10 +183,10 @@ export default function Home() {
           viewport={{ once: true }}
           className="relative max-w-4xl mx-auto text-center text-white z-10"
         >
-          <h2 className="text-4xl font-bold mb-6">{t("home.cta.title")}</h2>
-          <p className="text-lg mb-8 opacity-90">{t("home.cta.description")}</p>
+          <h2 className="text-4xl font-bold mb-6">{t("Ready to Transform Your Business?")}</h2>
+          <p className="text-lg mb-8 opacity-90">{t("Let's discuss how we can help you achieve your goals")}</p>
           <Button className="book-cta bg-white text-purple-600 hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold transition shadow-lg h-12 hover:cursor-pointer">
-            {t("home.cta.button")}
+            {t("Schedule Your Free Consultation")}
           </Button>
         </motion.div>
       </section>
