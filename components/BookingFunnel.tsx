@@ -358,13 +358,11 @@ export function BookingFunnel() {
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-background/80 backdrop-blur-md">
           <DialogContent
             ref={dialogRef}
-            className={`sm:max-w-2xl max-h-[90vh] overflow-y-auto ${
-              isRTL ? "text-right" : "text-left"
-            } ${
-              isRTL
+            className={`sm:max-w-2xl max-h-[90vh] overflow-y-auto ${isRTL ? "text-right" : "text-left"
+              } ${isRTL
                 ? "[&_[data-slot=dialog-close]]:left-4 [&_[data-slot=dialog-close]]:right-auto [&_[data-slot=dialog-close]]:cursor-pointer"
                 : "[&_[data-slot=dialog-close]]:cursor-pointer"
-            }`}
+              }`}
             style={{ direction: isRTL ? "rtl" : "ltr" }}
             role="dialog"
             aria-modal="true"
@@ -373,29 +371,28 @@ export function BookingFunnel() {
           >
             <DialogHeader className={isRTL ? "text-right" : "text-left"}>
               <DialogTitle
-                className={`flex items-center ${
-                  isRTL ? "justify-start" : "justify-between"
-                }`}
+                className={`flex items-center ${isRTL ? "justify-start" : "justify-between"
+                  }`}
               >
                 {step === 1
                   ? t("bookingFunnel.step1.title")
                   : step === 2
-                  ? t("bookingFunnel.step2.title")
-                  : step === 3
-                  ? t("bookingFunnel.step3.title")
-                  : step === 4
-                  ? t("bookingFunnel.step4.title")
-                  : t("bookingFunnel.step5.title")}
+                    ? t("bookingFunnel.step2.title")
+                    : step === 3
+                      ? t("bookingFunnel.step3.title")
+                      : step === 4
+                        ? t("bookingFunnel.step4.title")
+                        : t("bookingFunnel.step5.title")}
                 <span id="dialog-title" className="sr-only">
                   {step === 1
                     ? t("bookingFunnel.step1.title")
                     : step === 2
-                    ? t("bookingFunnel.step2.title")
-                    : step === 3
-                    ? t("bookingFunnel.step3.title")
-                    : step === 4
-                    ? t("bookingFunnel.step4.title")
-                    : t("bookingFunnel.step5.title")}
+                      ? t("bookingFunnel.step2.title")
+                      : step === 3
+                        ? t("bookingFunnel.step3.title")
+                        : step === 4
+                          ? t("bookingFunnel.step4.title")
+                          : t("bookingFunnel.step5.title")}
                 </span>
               </DialogTitle>
               <Progress
@@ -601,9 +598,8 @@ export function BookingFunnel() {
                     )}
                   </div>
                   <div
-                    className={`flex gap-2 ${
-                      isRTL ? "justify-start flex-row-reverse" : "justify-end"
-                    }`}
+                    className={`flex gap-2 ${isRTL ? "justify-start flex-row-reverse" : "justify-end"
+                      }`}
                   >
                     <Button
                       variant="outline"
@@ -726,9 +722,8 @@ export function BookingFunnel() {
                     </div>
                   </div>
                   <div
-                    className={`flex gap-2 ${
-                      isRTL ? "justify-start flex-row-reverse" : "justify-end"
-                    }`}
+                    className={`flex gap-2 ${isRTL ? "justify-start flex-row-reverse" : "justify-end"
+                      }`}
                   >
                     <Button
                       variant="outline"
@@ -765,9 +760,8 @@ export function BookingFunnel() {
                         value={gameChanger}
                         onChange={(e) => setGameChanger(e.target.value)}
                         placeholder={t("bookingFunnel.step4.placeholder")}
-                        className={`mt-2 min-h-[100px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 resize-none ${
-                          isRTL ? "text-right" : "text-left"
-                        }`}
+                        className={`mt-2 min-h-[100px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 resize-none ${isRTL ? "text-right" : "text-left"
+                          }`}
                         style={{ direction: isRTL ? "rtl" : "ltr" }}
                         maxLength={300}
                       />
@@ -777,9 +771,8 @@ export function BookingFunnel() {
                     </div>
                   </div>
                   <div
-                    className={`flex gap-2 ${
-                      isRTL ? "justify-start flex-row-reverse" : "justify-end"
-                    }`}
+                    className={`flex gap-2 ${isRTL ? "justify-start flex-row-reverse" : "justify-end"
+                      }`}
                   >
                     <Button
                       variant="outline"
