@@ -7,6 +7,7 @@ import { ThemeProvider } from "../components/theme-provider";
 import { LanguageProvider } from "../components/language-provider";
 import { AnalyticsProvider } from "../components/analytics-provider";
 import { BookingFunnel } from "@/components/BookingFunnel";
+import { ChatWidget } from "@/components/chat-widget";
 
 
 const _geist = Geist({ subsets: ["latin"] });
@@ -52,6 +53,7 @@ export default function RootLayout({
             <LanguageProvider>
               {children}
               <BookingFunnel />
+              <ChatWidget />
             </LanguageProvider>
           </ThemeProvider>
         </AnalyticsProvider>
