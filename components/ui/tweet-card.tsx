@@ -1,8 +1,8 @@
 "use client";
 
-import { Suspense, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import { enrichTweet, type EnrichedTweet, type TweetProps } from "react-tweet"
-import { getTweet, type Tweet } from "react-tweet/api"
+import { type Tweet } from "react-tweet/api"
 
 import { cn } from "@/lib/utils"
 
@@ -224,6 +224,27 @@ export const TweetMedia = ({ tweet }: { tweet: EnrichedTweet }) => {
   )
 }
 
+const normalizeEntities = (
+  entities: Tweet["entities"] | undefined
+): Tweet["entities"] => ({
+  hashtags: entities?.hashtags ?? [],
+  urls: entities?.urls ?? [],
+  user_mentions: entities?.user_mentions ?? [],
+  symbols: entities?.symbols ?? [],
+  ...(entities?.media ? { media: entities.media } : {}),
+})
+
+const normalizeTweetEntities = (tweet: Tweet): Tweet => ({
+  ...tweet,
+  entities: normalizeEntities(tweet.entities),
+  quoted_tweet: tweet.quoted_tweet
+    ? {
+        ...tweet.quoted_tweet,
+        entities: normalizeEntities(tweet.quoted_tweet.entities),
+      }
+    : undefined,
+})
+
 export const MagicTweet = ({
   tweet,
   className,
@@ -232,7 +253,7 @@ export const MagicTweet = ({
   tweet: Tweet
   className?: string
 }) => {
-  const enrichedTweet = enrichTweet(tweet)
+  const enrichedTweet = enrichTweet(normalizeTweetEntities(tweet))
   return (
     <div
       className={cn(
